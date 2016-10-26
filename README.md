@@ -24,6 +24,29 @@ $ git clone https://github.com/ncmochacity/web-optimize-portfolio.git
 ## Pagespeed results
 * After optimization changes, the pagespeed score for Cameron's index page increased to 95/100 for mobile and 97/100 for desktop with 100/100 for user experience.
 
+## Pizza Page Optimizations
+
+#### Reduced Pizza Elements
+Reduced sliding pizza elements from 200 to 40, given there's only a limited number of sliding pizzas that fit on the screen.
+200 wasn't necessary.
+
+``` js
+document.addEventListener('DOMContentLoaded', function() {
+ var cols = 8;
+ var s = 256;
+ for (var i = 0; i < 40; i++) {
+  var elem = document.createElement('img');
+  elem.className = 'mover';
+  elem.src = "images/pizza.png";
+  elem.style.height = "100px";
+  elem.style.width = "73.333px";
+  elem.basicLeft = (i % cols) * s;
+  elem.style.top = (Math.floor(i / cols) * s) + 'px';
+  document.querySelector("#movingPizzas1").appendChild(elem);
+ }
+ updatePositions();
+});
+```
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
