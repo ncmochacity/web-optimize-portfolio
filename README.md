@@ -15,7 +15,7 @@ $ git clone https://github.com/ncmochacity/web-optimize-portfolio.git
   $> cd /path/to/your-project-folder
   $> ./ngrok http 8080
   ```
-## Portfolio Index Page Optimizations
+### Portfolio Index Page Optimizations
 1. Image compression: using Grunt responsive images for automating image compression
 1. Inlining CSS for minimizing render blocking CSS that speeds page loads
 1. Added a media attribute for "print" in the head tag for print styles
