@@ -15,11 +15,12 @@ $ git clone https://github.com/ncmochacity/web-optimize-portfolio.git
   $> cd /path/to/your-project-folder
   $> ./ngrok http 8080
   ```
-### Portfolio Index Page Optimizations
-1. Image compression: using Grunt responsive images for automating image compression
-1. Inlining CSS for minimizing render blocking CSS that speeds page loads
-1. Added a media attribute for "print" in the head tag for print styles
-1. Added the [async attribute] to all script tags  
+  
+## Portfolio Index Page Optimizations
+* Image compression: using Grunt responsive images for automating image compression
+* Inlining CSS for minimizing render blocking CSS that speeds page loads
+* Added a media attribute for "print" in the head tag for print styles
+* Added the [async attribute] to all script tags  
 
 ## Pagespeed results
 * After optimization changes, the pagespeed score for Cameron's index page increased to 95/100 for mobile and 97/100 for desktop with 100/100 for user experience.
