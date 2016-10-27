@@ -88,6 +88,32 @@ function determineDx (elem, size) {
   }
 
 ```
+
+After the removal
+
+``` js
+function changePizzaSizes(size) {
+ switch (size) {
+  case "1":
+   newWidth = 25;
+   break;
+  case "2":
+   newWidth = 33.3;
+   break;
+  case "3":
+   newWidth = 50;
+   break;
+  default:
+   console.log("bug in sizeSwitcher");
+ }
+ var slidingPizzas = document.querySelectorAll("randomPizzaContainer");
+ for (var i = 0; i < slidingPizzas.length; i++) {
+  slidingPizzas[i].style.width = newWidth + "%";
+ }
+}
+changePizzaSizes(size);
+```
+
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
