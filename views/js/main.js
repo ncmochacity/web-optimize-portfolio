@@ -445,7 +445,6 @@ var resizePizzas = function(size) {
 
  // Iterates through pizza elements on the page and changes their widths
  function changePizzaSizes(size) {
-   var newWidth = 0;
   switch (size) {
    case "1":
     newWidth = 25;
@@ -533,6 +532,7 @@ window.addEventListener('scroll', function(){
 });
 
 // Generates the sliding pizzas when the page loads. Reduced the number of pizzas in the for loop that's run in updatePositions
+//reduced sliding pizzas from 200 to 40 because there's only a number of pizzas will be displayed on the screen
 document.addEventListener('DOMContentLoaded', function() {
  var cols = 8;
  var s = 256;

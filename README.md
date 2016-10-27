@@ -15,7 +15,7 @@ $ git clone https://github.com/ncmochacity/web-optimize-portfolio.git
   $> cd /path/to/your-project-folder
   $> ./ngrok http 8080
   ```
-  
+
 ## Portfolio Index Page Optimizations
 * Image compression: using Grunt responsive images for automating image compression
 * Inlining CSS for minimizing render blocking CSS that speeds page loads
@@ -47,6 +47,46 @@ document.addEventListener('DOMContentLoaded', function() {
  }
  updatePositions();
 });
+```
+
+#### Removed determinDx function
+Removed determinDX function, because this function can be replaced by changePizzaSizes in percentage widths instead and smooth performance without looping the determinDX and calculating the offsetWidth.
+
+``` js
+function determineDx (elem, size) {
+    var oldwidth = elem.offsetWidth;
+    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+    var oldsize = oldwidth / windowwidth;
+
+    // Changes the slider value to a percent width
+    function sizeSwitcher (size) {
+      switch(size) {
+        case "1":
+          return 0.25;
+        case "2":
+          return 0.3333;
+        case "3":
+          return 0.5;
+        default:
+          console.log("bug in sizeSwitcher");
+      }
+    }
+
+    var newsize = sizeSwitcher(size);
+    var dx = (newsize - oldsize) * windowwidth;
+
+    return dx;
+  }
+
+  // Iterates through pizza elements on the page and changes their widths
+  function changePizzaSizes(size) {
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    }
+  }
+
 ```
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
