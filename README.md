@@ -28,14 +28,14 @@ $ git clone https://github.com/ncmochacity/web-optimize-portfolio.git
 ## Pizza Page Optimizations
 
 #### Reduced Pizza Elements
-Reduced sliding pizza elements from 200 to 40, given there's only a limited number of sliding pizzas that fit on the screen.
+Reduced sliding pizza elements from 200 to 30, given there's only a limited number of sliding pizzas that fit on the screen.
 200 wasn't necessary.
 
 ``` js
 document.addEventListener('DOMContentLoaded', function() {
  var cols = 8;
  var s = 256;
- for (var i = 0; i < 40; i++) {
+ for (var i = 0; i < 30; i++) {
   var elem = document.createElement('img');
   elem.className = 'mover';
   elem.src = "images/pizza.png";

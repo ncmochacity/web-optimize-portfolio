@@ -423,16 +423,16 @@ var resizePizzas = function(size) {
 
  // Changes the value for the size of the pizza above the slider
  function changeSliderLabel(size) {
-   var pizzaSizeDom = document.getElementById("pizzaSize");
+
   switch (size) {
    case "1":
-    pizzaSizeDom.innerHTML = "Small";
+    document.querySelector("#pizzaSize").innerHTML = "Small";
     return;
    case "2":
-    pizzaSizeDom.innerHTML = "Medium";
+    document.querySelector("#pizzaSize").innerHTML = "Medium";
     return;
    case "3":
-    pizzaSizeDom.innerHTML = "Large";
+    document.querySelector("#pizzaSize").innerHTML = "Large";
     return;
    default:
     console.log("bug in changeSliderLabel");
@@ -457,8 +457,9 @@ var resizePizzas = function(size) {
     break;
    default:
     console.log("bug in sizeSwitcher");
+    break;
   }
-  var slidingPizzas = document.querySelectorAll("randomPizzaContainer");
+  var slidingPizzas = document.querySelectorAll(".randomPizzaContainer");
   for (var i = 0; i < slidingPizzas.length; i++) {
    slidingPizzas[i].style.width = newWidth + "%";
   }
@@ -527,16 +528,14 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', function(){
-  window.requestAnimationFrame(updatePositions);
-});
+window.addEventListener('scroll',updatePositions);
 
 // Generates the sliding pizzas when the page loads. Reduced the number of pizzas in the for loop that's run in updatePositions
 //reduced sliding pizzas from 200 to 40 because there's only a number of pizzas will be displayed on the screen
 document.addEventListener('DOMContentLoaded', function() {
  var cols = 8;
  var s = 256;
- for (var i = 0; i < 40; i++) {
+ for (var i = 0; i < 30; i++) {
   var elem = document.createElement('img');
   elem.className = 'mover';
   elem.src = "images/pizza.png";
